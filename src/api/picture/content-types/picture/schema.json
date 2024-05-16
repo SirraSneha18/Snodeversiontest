@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pictures",
+  "info": {
+    "singularName": "picture",
+    "pluralName": "pictures",
+    "displayName": "Picture",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Position": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "picture_set": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::picture-set.picture-set",
+      "inversedBy": "pictures"
+    }
+  }
+}

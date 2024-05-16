@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "booking_campaigns",
+  "info": {
+    "singularName": "booking-campaign",
+    "pluralName": "booking-campaigns",
+    "displayName": "BookingCampaign",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BookingDate": {
+      "type": "date",
+      "required": true
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "OPENED",
+        "CLOSED",
+        "COMPLETED"
+      ],
+      "required": true,
+      "default": "OPENED"
+    },
+    "service": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::service.service",
+      "inversedBy": "booking_campaigns"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "booking_campaign"
+    }
+  }
+}

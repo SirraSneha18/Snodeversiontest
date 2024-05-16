@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "singularName": "event",
+    "pluralName": "events",
+    "displayName": "Event",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    },
+    "Date": {
+      "type": "date",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Archived": {
+      "type": "boolean",
+      "default": false
+    },
+    "Description": {
+      "type": "text",
+      "required": true,
+      "maxLength": 280
+    },
+    "Keywords": {
+      "type": "text",
+      "required": true
+    },
+    "service": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::service.service",
+      "inversedBy": "events"
+    },
+    "Body": {
+      "type": "richtext"
+    },
+    "IsVideo": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "YoutubeVideoId": {
+      "type": "string"
+    }
+  }
+}

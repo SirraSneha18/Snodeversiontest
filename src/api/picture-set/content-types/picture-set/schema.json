@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "picture_sets",
+  "info": {
+    "singularName": "picture-set",
+    "pluralName": "picture-sets",
+    "displayName": "PictureSet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "pictures": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::picture.picture",
+      "mappedBy": "picture_set"
+    }
+  }
+}

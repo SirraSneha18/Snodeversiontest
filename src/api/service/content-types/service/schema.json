@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "text",
+      "required": false
+    },
+    "StartTime": {
+      "type": "time",
+      "required": true
+    },
+    "EndTime": {
+      "type": "time",
+      "required": true
+    },
+    "events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event.event",
+      "mappedBy": "service"
+    },
+    "booking_campaigns": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking-campaign.booking-campaign",
+      "mappedBy": "service"
+    }
+  }
+}

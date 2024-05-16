@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bookings",
+  "info": {
+    "singularName": "booking",
+    "pluralName": "bookings",
+    "displayName": "Booking",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BookingId": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "CustomerName": {
+      "type": "string",
+      "required": true
+    },
+    "CustomerPhone": {
+      "type": "string",
+      "required": true
+    },
+    "CustomerEmail": {
+      "type": "email",
+      "required": true
+    },
+    "QrCodeUrl": {
+      "type": "string"
+    },
+    "CancellationReason": {
+      "type": "string"
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "PENDING",
+        "CONFIRMED",
+        "CANCELLED",
+        "CONSUMED",
+        "UNCONSUMED"
+      ],
+      "default": "PENDING",
+      "required": true
+    },
+    "booking_campaign": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::booking-campaign.booking-campaign",
+      "inversedBy": "bookings"
+    },
+    "table_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::table-type.table-type",
+      "inversedBy": "bookings"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "spots",
+  "info": {
+    "singularName": "spot",
+    "pluralName": "spots",
+    "displayName": "Spot",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    },
+    "Date": {
+      "type": "date",
+      "required": true
+    },
+    "IsVideo": {
+      "type": "boolean"
+    },
+    "YoutubeVideoId": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text",
+      "required": true,
+      "maxLength": 280
+    },
+    "Keywords": {
+      "type": "text",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Body": {
+      "type": "richtext"
+    }
+  }
+}

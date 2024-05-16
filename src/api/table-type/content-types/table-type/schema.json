@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "table_types",
+  "info": {
+    "singularName": "table-type",
+    "pluralName": "table-types",
+    "displayName": "TableType"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "NumberOfPlaces": {
+      "type": "integer",
+      "required": true
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "table_type"
+    }
+  }
+}
